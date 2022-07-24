@@ -1,0 +1,25 @@
+header ul{
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-self: center;  
+    letter-spacing: 0.05rem;
+    background: #b5c0ca;
+    padding: 0.8rem 1rem;
+    color: white;
+  }
+  header ul li{
+    list-style: none;
+  }
+  header ul li a{
+    
+    text-decoration: none;
+    align-self: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    
+    padding: 0.4rem 0.8rem; 
+    color: rgb(9, 9, 9);
+  }
+

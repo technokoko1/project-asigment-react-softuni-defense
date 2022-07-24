@@ -7,16 +7,17 @@ export default function Navigation() {
     return (
         <header >
             {/* for all users TODO */}
-          <h1><NavLink to="/">HomePage</NavLink></h1>
-          <h1><NavLink to="/catalog">Catalog</NavLink></h1>
+            <ul>
+          <li><NavLink to="/">HomePage</NavLink></li>
+          <li><NavLink to="/catalog">Catalog</NavLink></li>
           {/* for non loged users TODO*/}
-          <h1><NavLink to="/login">Login</NavLink></h1>
-          <h1><NavLink to="/register">Register</NavLink></h1>
+          <li><NavLink to="/login">Login</NavLink></li>
+          <li><NavLink to="/register">Register</NavLink></li>
            {/* for loged in users TODO*/} 
           {/* maybe make the profile page button to be the userName */}
-          <h1><NavLink to="/profile-page">Profile Page</NavLink></h1>
-          <h1><NavLink to="/logout">Logout</NavLink></h1>
-          
+          <li><NavLink to="/profile-page">Profile Page</NavLink></li>
+          <li><NavLink to="/logout">Logout</NavLink></li>
+          </ul>
           </header>
       )
   

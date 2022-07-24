@@ -1,0 +1,23 @@
+.footerWrap {
+    width:100%;
+    position:fixed;
+    bottom: 0px;
+}
+.footer {
+    width:1200px;
+    margin:auto;
+}
+.footerContent {
+    float:left;
+    width:100%;
+    background-color:rgb(183, 194, 213);
+    padding:20px 0;
+}
+.footer p {
+    float:left;
+     width:100%; 
+     text-align:center;
+      font-weight: bold;
+      
+    
+ }
