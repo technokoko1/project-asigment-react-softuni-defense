@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 export default function Navigation() {
   
     return (
-        <header >
+        <header class="headerWrap" >
             {/* for all users TODO */}
             <ul>
           <li><NavLink to="/">HomePage</NavLink></li>

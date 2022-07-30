@@ -1,8 +1,5 @@
-header{
-  /* position: fixed; */
-  top: 0px;
- width: 100;
-}
+body{margin:0}
+
 header ul{
     height: fit-content;
     display: flex;
@@ -29,4 +26,6 @@ header ul{
     padding: 0.4rem 0.8rem; 
     color: orangered;
   }
+
+  
 

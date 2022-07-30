@@ -12,7 +12,7 @@
 .footerContent {
     float:left;
     width:100%;
-    background-color:rgb(0, 0, 0);
+    background-color:#000000;
     padding:20px 0;
 }
 .footer p {
@@ -30,7 +30,9 @@
     text-align: center 
  }
 
-
+ .root{
+    margin:0
+ }
 
  html{
       background-image: url("https://wallpaper.dog/large/20502650.jpg") ; 
@@ -38,6 +40,7 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
+      margin:0;
     
       
       /* kartinkata na zadnata chast na stranicata */
