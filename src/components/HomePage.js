@@ -4,18 +4,23 @@ export default function HomePage() {
   return (
     <div id='center'>
       <h1 >
-      Welcome to Fit-Trader!<br></br>
-       Biggest website to buy and sell used fitness equipment!
-        </h1>
-        <h2>Search for ussed fittnes equipment</h2>
-         <div > 
-        <input id='searchBar' type="text" placeholder="Search.."/>
-        
-        </div>
-        <div id='search'>
-          <button id='serchButton'>Search</button>
-        </div>
-        
+        Welcome to Fit-Trader!<br></br>
+        Biggest website to buy and sell used fitness equipment!
+      </h1>
+      <h2>Search for ussed fittnes equipment</h2>
+      <div >
+        <input id='searchBar' type="text" placeholder="Search.." />
+        {/* TODO ADD FUNCTIONALITY */}
       </div>
+      <div id='search'>
+        <button id='serchButton'>Search</button>
+        {/* TODO ADD FUNCTIONALITY */}
+      </div>
+      <h2>Or sell your old one!</h2>
+      <div>
+        <button id='serchButton'>Create</button>
+        </div>
+
+    </div>
   )
 }

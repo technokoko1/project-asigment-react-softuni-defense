@@ -24,9 +24,9 @@ function App() {
       </Routes>
 
 
-      <div class="footerWrap">
-    <div class="footer">
-      <div class="footerContent">
+      <div className="footerWrap">
+    <div className="footer">
+      <div className="footerContent">
         <p>This is Footer</p>
       </div>     
     </div>
