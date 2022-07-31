@@ -7,8 +7,9 @@ export default function HomePage() {
         Welcome to Fit-Trader!<br></br>
         Biggest website to buy and sell used fitness equipment!
       </h1>
+      <div id='homePage'>
       <h2>Search for ussed fittnes equipment</h2>
-      <div >
+      <div  >
         <input id='searchBar' type="text" placeholder="Search.." />
         {/* TODO ADD FUNCTIONALITY */}
       </div>
@@ -18,7 +19,8 @@ export default function HomePage() {
       </div>
       <h2>Or sell your old one!</h2>
       <div>
-        <button id='serchButton'>Create</button>
+        <button id='serchButton'>Sell</button>
+        </div>
         </div>
 
     </div>
