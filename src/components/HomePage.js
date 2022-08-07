@@ -1,13 +1,13 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
 export default function HomePage() {
   return (
     <div id='center'>
-      <h1 >
-        Welcome to Fit-Trader!<br></br>
-        Biggest website to buy and sell used fitness equipment!
-      </h1>
+      
       <div id='homePage'>
+      <h1 >
+        Welcome to Fit-Trader!
+      </h1>
       <h2>Search for ussed fittnes equipment</h2>
       <div  >
         <input id='searchBar' type="text" placeholder="Search.." />
@@ -19,7 +19,7 @@ export default function HomePage() {
       </div>
       <h2>Or sell your old one!</h2>
       <div>
-        <button id='serchButton'>Sell</button>
+       <button id='sellButton'> <NavLink id='sellNav'  to="/create-listing">Sell</NavLink></button>
         </div>
         </div>
 

@@ -15,6 +15,7 @@ export default function Navigation() {
           <li><NavLink to="/register">Register</NavLink></li>
            {/* for loged in users TODO*/} 
           {/* maybe make the profile page button to be the userName */}
+          <li><NavLink to="/create-listing">Create Listing</NavLink></li>
           <li><NavLink to="/profile-page">Profile Page</NavLink></li>
           <li><NavLink to="/logout">Logout</NavLink></li>
           </ul>
