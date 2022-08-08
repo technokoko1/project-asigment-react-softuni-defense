@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { useState,useEffect } from "react";
 
+import { AuthContext } from "./contexts/AuthConext";
 import HomePage from "./components/HomePage";
 import Header from "./components/Header";
 import Catalog from "./components/Catalog";
@@ -9,10 +10,11 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import CreateListing from "./components/CreateListing";
 import DetailsPage from "./components/DetailsPage";
-
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   const [equipment, setEquipment] = useState([]);
+  const [auth, setAuth] = useLocalStorage('auth', {});
 
   useEffect(() => {
     fetch('http://localhost:3030/data/catalog')
@@ -22,7 +24,16 @@ function App() {
             setEquipment(result);
         });
 }, []);
+
+const userLogin = (authData) => {
+  setAuth(authData);
+};
+
+const userLogout = () => {
+  setAuth({});
+};
   return (
+    <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
     <div id="background">
       <Header/>
       <main>
@@ -51,7 +62,8 @@ function App() {
     </div>
 
 
-  );
+    </AuthContext.Provider>
+    );
 }
 
 export default App;
