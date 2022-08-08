@@ -1,0 +1,22 @@
+#detailsPage{
+    background-color: rgba(255, 255, 255, 0.5);
+
+    border-radius: 25px;
+    margin: auto;
+    width: 30%;
+    border: 3px;
+    padding-bottom: 10px;
+    padding-bottom :10px;
+    font-style: verdana;
+    color: orangered;
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 100px;
+}
+#detailsDescription{
+    word-wrap: break-word;
+    text-align: center;
+    position: relative;
+    bottom: 100px;
+    
+}
