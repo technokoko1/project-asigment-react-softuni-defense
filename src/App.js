@@ -2,11 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import { useState,useEffect } from "react";
 
 import { AuthContext } from "./contexts/AuthConext";
+
 import HomePage from "./components/HomePage";
 import Header from "./components/Header";
 import Catalog from "./components/Catalog";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
+import Logout from "./components/Logout";
 import Register from "./components/Register";
 import CreateListing from "./components/CreateListing";
 import DetailsPage from "./components/DetailsPage";
@@ -44,6 +46,7 @@ const userLogout = () => {
       <Route path='/create-listing' element={<CreateListing/>}/>
       {/* maybe make the profilepage path to be the username  TODO*/}
       <Route path='/login' element={<Login/>}/>
+      <Route path="/logout" element={<Logout />} />
       <Route path='/register' element={<Register/>}/>
       <Route path="/catalog/:id" element={<DetailsPage equipment={equipment}/>} />
       {/* TODO ADD LOGOUT */}

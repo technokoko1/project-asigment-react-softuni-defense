@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 export default function HomePage() {
   return (
     <div id='center'>
-        <h1>Fit Trader!</h1>
+        <h1>Fit Trader</h1>
       <div id='homePage'>
       
       <div  >
