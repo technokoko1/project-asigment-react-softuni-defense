@@ -1,23 +1,36 @@
 import React from 'react'
 import CatalogItem from './CatalogItem'
-export default function Catalog({equipment}) {
+import { useState } from 'react'
 
-  //TODO FIX NO ARTICLES
+export default function Catalog({equipment}) {
+    const [searchTerm,setSearchTerm]=useState('')
+  function onChange(e) {
+    setSearchTerm(e.target.value)
+    console.log(e.target.value)
+  } 
   return (
     <>
     <div id='center'> 
       <div  >
-        <input id='searchBar' type="text" placeholder="Search for fittnes equipment.." />
+        <input id='searchBar' type="text" placeholder="Search.." onChange={onChange} />
         {/* TODO ADD FUNCTIONALITY */}
       </div>
       <div id='search'>
-        <button id='serchButton'>Search</button>
-        {/* TODO ADD FUNCTIONALITY */}
+     
+      
       </div>
       </div>
       <div id='catalogItemBoxes'>
       {equipment.length > 0
-                ? equipment.map(x => <CatalogItem key={x._id} oneEquipment={x} />)
+                ? equipment.filter(
+                  (x)=>{
+                    if(searchTerm==''){
+                      return x
+                    }else if(x.title.toLowerCase().includes(searchTerm.toLowerCase())){
+                     return x
+                    }
+              })
+              .map(x => <CatalogItem key={x._id} oneEquipment={x} />)
                 : <h3 id='catalog'>No articles yet</h3>
             }
             </div>

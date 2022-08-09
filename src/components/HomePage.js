@@ -7,15 +7,15 @@ export default function HomePage() {
       <div id='homePage'>
       
       <div  >
-        <input id='searchBar' type="text" placeholder="Search for fittnes equipment.." />
-        {/* TODO ADD FUNCTIONALITY */}
+        <h2>Buy or Sell fittness equipment</h2>
+      
       </div>
       <div id='search'>
-        <button id='serchButton'>Search</button>
-        {/* TODO ADD FUNCTIONALITY */}
+        <button id='serchButton'> <NavLink id='sellNav'  to="/catalog">Buy</NavLink></button>
+      
       </div>
       <div>
-       <button id='sellButton'> <NavLink id='sellNav'  to="/create-listing">Add Listing</NavLink></button>
+       <button id='serchButton'> <NavLink id='sellNav'  to="/create-listing">Sell</NavLink></button>
         </div>
         </div>
 

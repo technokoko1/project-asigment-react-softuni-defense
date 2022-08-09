@@ -5,18 +5,7 @@ h2{
    
     
 }
-#searchBar{
-    font-size: 35px;
-    color: orangered;
-    border: 3px solid grey;
-    width: 500px;
-    height: 50px;
-    padding: 2px 23px 2px 30px;
-    outline: 0;
-    background-color: #f5f5f5;
-    margin-bottom: 20px;
-    border-radius: 25px;
-}
+
 
 #serchButton{
     background-color: orangered;
