@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { Route, Routes ,useNavigate} from "react-router-dom";
+import { useState,useEffect} from "react";
 
 import { AuthContext } from "./contexts/AuthConext";
-
+import { EquipmentContext } from "./contexts/EqupmentContext";
 import HomePage from "./components/HomePage";
 import Header from "./components/Header";
 import Catalog from "./components/Catalog";
@@ -15,9 +15,10 @@ import DetailsPage from "./components/DetailsPage";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
+ 
   const [equipment, setEquipment] = useState([]);
   const [auth, setAuth] = useLocalStorage('auth', {});
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch('http://localhost:3030/data/catalog')
     .then(res => res.json())
@@ -34,10 +35,20 @@ const userLogin = (authData) => {
 const userLogout = () => {
   setAuth({});
 };
+
+const equipmentAdd = (equipmentData) => {
+  setEquipment(state => [
+      ...state,
+      equipmentData,
+  ]);
+
+  navigate('/catalog');
+};
   return (
     <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
     <div id="background">
       <Header/>
+      <EquipmentContext.Provider value={{equipment, equipmentAdd, }}>
       <main>
       <Routes>
       <Route path='/' element={<HomePage/>}/>
@@ -54,6 +65,7 @@ const userLogout = () => {
       </Routes>
 
       </main>
+      </EquipmentContext.Provider>
       <div className="footerWrap">
     <div className="footer">
       <div className="footerContent">

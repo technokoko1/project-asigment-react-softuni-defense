@@ -1,15 +1,27 @@
 import React from 'react'
-const onSubmit = (e) => {
-    e.preventDefault();
+import { useContext } from 'react';
+import { EquipmentContext } from '../contexts/EqupmentContext';
 
-    const listingData = Object.fromEntries(new FormData(e.target));
+import * as equipmentService from '../services/equipmentService';
 
-    console.log(listingData);
 
-    //   TODO FINISH SUBBMIT
-}
 export default function CreateListing() {
-    return (<section>
+   
+        const { equipmentAdd } = useContext(EquipmentContext);
+    
+        const onSubmit = (e) => {
+            e.preventDefault();
+    
+            const equipmentData = Object.fromEntries(new FormData(e.target));
+    
+            equipmentService.create(equipmentData)
+                .then(result => {
+                    equipmentAdd(result)
+                });
+        };
+    
+    return (
+    <section>
         <div id='center'>
             <form id='create' onSubmit={onSubmit} >
                 <h1>Sell Equipment</h1>
