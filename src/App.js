@@ -13,6 +13,7 @@ import Register from "./components/Register";
 import CreateListing from "./components/CreateListing";
 import DetailsPage from "./components/DetailsPage";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import EditPage from "./components/EditPage";
 
 function App() {
  
@@ -53,14 +54,15 @@ const equipmentAdd = (equipmentData) => {
       <Routes>
       <Route path='/' element={<HomePage/>}/>
       <Route path='/catalog' element={<Catalog equipment={equipment}/>}/>
-      <Route path='/profile-page' element={<Profile/>}/>
+      <Route path='/profile-page' element={<Profile equipment={equipment}/>}/>
       <Route path='/create-listing' element={<CreateListing/>}/>
       {/* maybe make the profilepage path to be the username  TODO*/}
       <Route path='/login' element={<Login/>}/>
       <Route path="/logout" element={<Logout />} />
       <Route path='/register' element={<Register/>}/>
-      <Route path="/catalog/:id" element={<DetailsPage equipment={equipment}/>} />
-      {/* TODO ADD LOGOUT */}
+      <Route path="/catalog/details/:id" element={<DetailsPage equipment={equipment}/>} />
+      <Route path="/catalog/edit/:id" element={<EditPage equipment={equipment}/>} />
+      {/* TODO ADD EDIT AND DELETE */}
 
       </Routes>
 

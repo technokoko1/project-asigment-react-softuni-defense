@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function Navigation() {
     const { user } = useContext(AuthContext);
-    console.log(user)
+   
     return (
         <header className="headerWrap" >
             {/* for all users TODO */}

@@ -8,7 +8,7 @@ export default function CatalogItem({ oneEquipment }) {
             <div id='catalogImgDiv'> <img id='catalogImg' src={oneEquipment.image} /></div>
             <div id='catalogTextDiv'> <h6>Price:{oneEquipment.price}</h6>
 
-                <Link to={`/catalog/${oneEquipment._id}`} id='detailsBtn'>
+                <Link to={`/catalog/details/${oneEquipment._id}`} id='detailsBtn'>
                     Details
                 </Link>
             </div>
