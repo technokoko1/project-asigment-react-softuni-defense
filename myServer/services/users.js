@@ -30,7 +30,7 @@ const user= new User({
 async function login(email,password){
     
     const user=await User.findOne({email:new RegExp(`^${email}$`,'i')})
-
+      console.log(user)
     if (!user){
         throw new Error('Incorect email or password')
     }

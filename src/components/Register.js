@@ -19,13 +19,18 @@ export default function Register() {
       const confirmPassword = formData.get('confirm-password');
       
       if (password !== confirmPassword) {
-          return;
+        window.alert('Passwords dont match')
       }
 
       authService.register(email, password)
           .then(authData => {
+            console.log(authData)
+            if(authData.message){
+                window.alert(authData.message)
+              }else{
               userLogin(authData);
               navigate('/');
+              }
           });
   }
 

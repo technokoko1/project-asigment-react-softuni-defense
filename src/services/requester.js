@@ -27,11 +27,13 @@ const request = async (method, url, data) => {
         }
         const response = await buildRequest;
 
-        console.log(response);
+        // console.log(response);
 
         const result = await response.json();
-
-        return result;
+            
+                return result;
+              
+      
     } catch (error) {
         console.log(error);
     }

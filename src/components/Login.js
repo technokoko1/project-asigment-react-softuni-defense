@@ -16,13 +16,19 @@ export default function Login() {
           password,
       } = Object.fromEntries(new FormData(e.target));
 
-      authService.login(email, password)
+     authService.login(email, password)
           .then(authData => {
+           
+            if(authData.message){
+              window.alert(authData.message)
+            }else{
               userLogin(authData);
               navigate('/');
+            }
+             
           })
           .catch(() => {
-              navigate('/404');
+              navigate('/login');
           });
   };
   return (
@@ -37,7 +43,7 @@ export default function Login() {
           type="email"
           id="loginEmail"
           name="email"
-          placeholder="Sokka@gmail.com"
+          placeholder="name@gmail.com"
         />
         </div>
         <div id='logPass'>

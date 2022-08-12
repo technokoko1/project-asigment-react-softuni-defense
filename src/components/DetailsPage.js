@@ -12,7 +12,7 @@ export default function DetailsPage({equipment,reloadState}) {
       console.log(oneEquipment.owner)
 
       const deleteHandler = () => {
-        console.log('asd')
+       
         const confirmation = window.confirm('Are you sure you want to delete this game?');
 
         if (confirmation) {

@@ -13,11 +13,17 @@ export default function CreateListing() {
             e.preventDefault();
     
             const equipmentData = Object.fromEntries(new FormData(e.target));
-    
-            equipmentService.create(equipmentData)
+            
+            
+                equipmentService.create(equipmentData)
                 .then(result => {
+                        console.log(result)
                     equipmentAdd(result)
-                });
+                     })
+                    
+                                      
+           
+           
         };
     
     return (
@@ -30,13 +36,15 @@ export default function CreateListing() {
                     id="title"
                     name="title"
                     placeholder="Equipment name..."
+                    required
                 />
                 <input
                     type="Number"
                     id="price"
                     name="price"
                     placeholder="Equipment price..."
-                    min={1}
+                    required
+                    min={0}
                 />
                 {/* TODO ADD TYPE */}
                 <input
