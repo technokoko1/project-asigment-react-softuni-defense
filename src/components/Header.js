@@ -5,16 +5,16 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthConext';
 import { NavLink } from 'react-router-dom'
 
-export default function Navigation() {
+export default function Navigation({onClick}) {
     const { user } = useContext(AuthContext);
-   
+
     return (
         <header className="headerWrap" >
             {/* for all users TODO */}
             <ul>
             {<li id='userEmail'>{user.email}</li>}
             <li><NavLink to="/">HomePage</NavLink></li>
-          <li><NavLink to="/catalog">Catalog</NavLink></li>
+          <li><NavLink  to="/catalog">Catalog</NavLink></li>
          { user.email
          ?<>
           <li><NavLink to="/create-listing">Create Listing</NavLink></li>

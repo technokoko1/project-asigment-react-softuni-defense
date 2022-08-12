@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 export default function Catalog({equipment}) {
     const [searchTerm,setSearchTerm]=useState('')
+ 
   function onChange(e) {
     setSearchTerm(e.target.value)
    

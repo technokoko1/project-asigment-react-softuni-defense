@@ -20,7 +20,7 @@ const request = async (method, url, data) => {
                 method,
                 headers: {
                     ...headers,
-                    'content-type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             });

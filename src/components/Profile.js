@@ -1,6 +1,5 @@
 import React from 'react'
 import CatalogItem from './CatalogItem'
-import { useState } from 'react'
 export default function Profile({ equipment }) {
   const data= localStorage.getItem('auth');
  const  user=JSON.parse(data)

@@ -1,12 +1,29 @@
 import React from 'react'
 import {  useParams } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-export default function DetailsPage({equipment}) {
+import * as equipmentService from '../services/equipmentService';
+export default function DetailsPage({equipment,reloadState}) {
+  const navigate = useNavigate();
    const {id}=useParams()
    const data= localStorage.getItem('auth');
    const  user=JSON.parse(data)
     const oneEquipment = equipment.find(x => x._id == id);
       console.log(oneEquipment.owner)
+
+      const deleteHandler = () => {
+        console.log('asd')
+        const confirmation = window.confirm('Are you sure you want to delete this game?');
+
+        if (confirmation) {
+          equipmentService.remove(id)
+                .then(() => {
+
+                    navigate('/catalog');
+                    reloadState()
+                })
+        }
+    }
   return (
     <div id='detailsPage'>
     <h2 id='centerTitle'>{oneEquipment.title}</h2>
@@ -20,7 +37,7 @@ export default function DetailsPage({equipment}) {
                 </Link>
                 </p>
                 <p>
-                  <button id='DeleteBtn' >Delete</button>
+                  <button onClick={deleteHandler}  id='DeleteBtn' >Delete</button>
                 </p>
                 </>
               :<button id='DeleteBtn' >Buy</button> }

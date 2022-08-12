@@ -14,12 +14,15 @@ import CreateListing from "./components/CreateListing";
 import DetailsPage from "./components/DetailsPage";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import EditPage from "./components/EditPage";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
  
   const [equipment, setEquipment] = useState([]);
+  const [reloadEquipment,setRealoadEquipment]=useState([2])
   const [auth, setAuth] = useLocalStorage('auth', {});
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch('http://localhost:3030/data/catalog')
     .then(res => res.json())
@@ -27,11 +30,13 @@ function App() {
             console.log(result);
             setEquipment(result);
         });
-}, []);
+}, [reloadEquipment]);
 
 const userLogin = (authData) => {
   setAuth(authData);
 };
+
+
 
 const userLogout = () => {
   setAuth({});
@@ -42,26 +47,37 @@ const equipmentAdd = (equipmentData) => {
       ...state,
       equipmentData,
   ]);
+ 
+  navigate('/catalog');
+};
+
+const reloadState = () => {
+  setRealoadEquipment(state => [
+      ...state,
+     
+  ]);
 
   navigate('/catalog');
 };
+
   return (
-    <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
+    <AuthContext.Provider value={{ user: auth, userLogin, userLogout  }}>
     <div id="background">
-      <Header/>
-      <EquipmentContext.Provider value={{equipment, equipmentAdd, }}>
+      <Header />
+      <EquipmentContext.Provider value={{equipment, equipmentAdd,setEquipment}}>
       <main>
       <Routes>
       <Route path='/' element={<HomePage/>}/>
-      <Route path='/catalog' element={<Catalog equipment={equipment}/>}/>
+      <Route path='/catalog' element={<Catalog  equipment={equipment}/>}/>
       <Route path='/profile-page' element={<Profile equipment={equipment}/>}/>
       <Route path='/create-listing' element={<CreateListing/>}/>
       {/* maybe make the profilepage path to be the username  TODO*/}
       <Route path='/login' element={<Login/>}/>
       <Route path="/logout" element={<Logout />} />
       <Route path='/register' element={<Register/>}/>
-      <Route path="/catalog/details/:id" element={<DetailsPage equipment={equipment}/>} />
-      <Route path="/catalog/edit/:id" element={<EditPage equipment={equipment}/>} />
+      <Route path="/catalog/details/:id" element={<DetailsPage reloadState={reloadState} equipment={equipment}/>} />
+      <Route path="/catalog/edit/:equipmentId" element={<EditPage reloadState={reloadState}  equipment={equipment}/>} />
+      <Route path="*" element={<ErrorPage/>} />
       {/* TODO ADD EDIT AND DELETE */}
 
       </Routes>
